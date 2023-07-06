@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update book</title>
+</head>
+<body>
+
+<form th:method="PATCH" th:action="@{/books/{id}(id=${book.getId()})}">
+    <label for="book.title">Enter title</label>
+    <input type="text" th:field="*{book.title}" id="book.title"/>
+    <div style="color: red" th:if="${#fields.hasErrors('book.title')}" th:errors="*{book.title}">Title error</div>
+    <br/>
+    <label for="author.name">Enter author name</label>
+    <input type="text" th:field="*{author.name}" id="author.name"/>
+    <div style="color:red" th:if="${#fields.hasErrors('book.name')}" th:error="*{author.name}">Author name error</div>
+    <label for="author.surname">Enter author surname</label>
+    <input type="text" th:field="*{author.surname}" id="author.surname"/>
+    <div style="color:red" th:if="${#fields.hasErrors('book.surname')}" th:error="*{author.surname}">Author surname error</div>
+    <br/>
+    <label for="book.publisher">Enter book publisher</label>
+    <input type ="text" th:field="*{book.publisher}" id ="book.publisher"/>
+    <div style="color:red" th:if="${#fields.hasErrors('book.publisher')}" th:errors="*{book.publisher}">Publisher error</div>
+    <br/>
+    <label for="book.year"> Enter year of publishing</label>
+    <input type="text" th:field="*{book.year}" id="book.year"/>
+    <div style="color:red" th:if="${#fields.hasErrors('book.year')}" th:error="*{book.year}">Year error</div>
+    <br/>
+    <label for="book.isbn"> Enter ISBN</label>
+    <input type="text" th:field="*{book.isbn}" id="book.isbn"/>
+    <div style="color:red" th:if="${#fields.hasErrors('book.isbn')}" th:error="*{book.isbn}">ISBN error</div>
+    <br/>
+    <input type="submit" value="Edit">
+</form>
+</body>
+</html>
